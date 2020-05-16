@@ -35,7 +35,7 @@ string analyze(string str){
 
 
 
-int main(){
+int main(int argc , char *argv[]){
 
 	int cgiInput[2];
 	int cgiOutput[2];
@@ -72,9 +72,9 @@ int main(){
 	//Prepare the sockaddr_in structure
 	server.sin_family = AF_INET;
 	server.sin_addr.s_addr = INADDR_ANY;
-	server.sin_port = htons(8888);
+	server.sin_port = htons(atoi(argv[1]));
 
-	printf("port is %d\n", 8888);
+	printf("port is %d\n", atoi(argv[1]));
 	//Bind
 	if( bind(socket_desc,(struct sockaddr *)&server , sizeof(server)) < 0)
 	{
@@ -163,7 +163,7 @@ int main(){
 				string cm;
         		cm = client_message;
         			
-				cout<<"child gets:"<<cm<<"\n";
+				cout<<"child gets:\n"<<cm<<"\n";
 				string result = analyze(cm);
 
 				cout<<"result is:"<<result<<"\n";

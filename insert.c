@@ -54,7 +54,14 @@ int main(){
     printf("<form method=\"get\">\n");
     printf("<p>data: <input type=\"text\" name=\"data\" /></p>\n");
     printf("<input type=\"submit\" value=\"Submit\" />\n");
+
+    printf("<button onclick=\"location.href=getlink()\" type=\"button\">view</button>\n");
     printf("</form>\n");
+    
+    printf("<script>\n");
+    printf("function getlink(){var nowlink = window.location.href; var link = nowlink.substring(0,nowlink.search(\"insert\")); return link+'view';}\n");
+    printf("</script>\n");
+
     printf("</body></html>\n");
  	printf("\n" );
     fclose(fout);
